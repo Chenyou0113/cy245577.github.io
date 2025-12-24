@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>專案 | C. Y.</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        nav {
+            background: var(--primary-color);
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+        }
+
+        .section-title {
+            margin: 40px 0 20px;
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2em;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.3em;
+        }
+
+        .project-card .meta {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            background: white;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            .container { margin-top: 20px; }
+            nav ul { flex-direction: column; }
+            nav a { padding: 10px; }
+            .project-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📁 我的專案</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="about.html">關於我</a></li>
+            <li><a href="projects.html">專案</a></li>
+            <li><a href="friends.html">朋友友站</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-title animate">我的開發專案</h2>
+
+        <div class="project-grid animate">
+            <!-- 項目 1 -->
+            <div class="project-card">
+                <h3>🌐 個人作品集網站</h3>
+                <div class="meta">2024年 | 個人項目</div>
+                <p>使用 HTML5 和 CSS3 構建的個人簡介網站，部署在 GitHub Pages 上。展示基礎前端開發能力。</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">GitHub Pages</span>
+                </div>
+                <p>✨ 特點：響應式設計 | 現代 UI/UX | 動畫效果</p>
+                <a href="https://github.com/Chenyou0113" class="btn" target="_blank">查看代碼</a>
+            </div>
+
+            <!-- 項目 2 -->
+            <div class="project-card">
+                <h3>✅ 待辦清單應用</h3>
+                <div class="meta">開發中 | 學習項目</div>
+                <p>使用 JavaScript 構建的交互式待辦清單，支持本地存儲和實時更新。用於練習 DOM 操作和事件處理。</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">DOM API</span>
+                    <span class="tech-tag">LocalStorage</span>
+                </div>
+                <p>✨ 特點：添加/刪除任務 | 標記完成 | 數據持久化</p>
+                <a href="#" class="btn" style="opacity: 0.6; cursor: not-allowed;">敬請期待</a>
+            </div>
+
+            <!-- 項目 3 -->
+            <div class="project-card">
+                <h3>🔍 網頁數據爬蟲</h3>
+                <div class="meta">開發中 | 學習項目</div>
+                <p>使用 Python 進行網頁爬蟲的實踐項目，學習數據提取和基本分析，了解網絡請求和數據處理。</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">BeautifulSoup</span>
+                    <span class="tech-tag">Pandas</span>
+                </div>
+                <p>✨ 特點：數據提取 | 清洗 | 基本分析</p>
+                <a href="#" class="btn" style="opacity: 0.6; cursor: not-allowed;">敬請期待</a>
+            </div>
+
+            <!-- 項目 4 -->
+            <div class="project-card">
+                <h3>🛠️ 計算器工具</h3>
+                <div class="meta">計劃中 | 學習項目</div>
+                <p>構建一個功能完整的 Web 計算器，支持基本運算和高級函數計算，展示 JavaScript 的數值運算能力。</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">CSS Grid</span>
+                    <span class="tech-tag">Responsive</span>
+                </div>
+                <p>✨ 特點：實時計算 | 歷史記錄 | 響應式設計</p>
+                <a href="#" class="btn" style="opacity: 0.6; cursor: not-allowed;">敬請期待</a>
+            </div>
+
+            <!-- 項目 5 -->
+            <div class="project-card">
+                <h3>🎨 配色方案生成器</h3>
+                <div class="meta">計劃中 | 工具項目</div>
+                <p>一個幫助設計師快速生成配色方案的工具，支持隨機生成、色系推薦和導出功能。</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Color API</span>
+                    <span class="tech-tag">UI Design</span>
+                </div>
+                <p>✨ 特點：隨機生成 | 導出支持 | 配色建議</p>
+                <a href="#" class="btn" style="opacity: 0.6; cursor: not-allowed;">敬請期待</a>
+            </div>
+
+            <!-- 項目 6 -->
+            <div class="project-card">
+                <h3>📚 學習筆記系統</h3>
+                <div class="meta">計劃中 | 個人工具</div>
+                <p>一個簡單的筆記管理系統，支持分類、搜索和標籤功能。用於個人學習和知識管理。</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML/CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Storage</span>
+                </div>
+                <p>✨ 特點：分類管理 | 全文搜索 | 數據同步</p>
+                <a href="#" class="btn" style="opacity: 0.6; cursor: not-allowed;">敬請期待</a>
+            </div>
+        </div>
+
+        <div style="background: white; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <h3>🚀 更多項目開發中...</h3>
+            <p>我正在持續學習新技術，並不斷創造有趣的項目。敬請期待！</p>
+            <a href="https://github.com/Chenyou0113" class="btn" target="_blank">訪問我的 GitHub</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 C. Y. Built with ❤️ on GitHub Pages.
+    </footer>
+
+</body>
+</html>

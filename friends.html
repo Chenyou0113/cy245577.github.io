@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朋友友站 | C. Y.</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        nav {
+            background: var(--primary-color);
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+        }
+
+        .intro-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title {
+            margin: 40px 0 20px;
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2em;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .friends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .friend-card {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .friend-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .friend-header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .friend-name {
+            font-size: 1.4em;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .friend-title {
+            margin: 5px 0 0 0;
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .friend-content {
+            padding: 20px;
+        }
+
+        .friend-content p {
+            margin: 10px 0;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .friend-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .skill-badge {
+            background: #f0f0f0;
+            color: #333;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .friend-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .friend-link {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+
+        .friend-link:hover {
+            background: #2980b9;
+            text-decoration: none;
+        }
+
+        .add-friend {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px dashed var(--accent-color);
+        }
+
+        .add-friend h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        .add-friend p {
+            color: #666;
+            margin: 15px 0;
+        }
+
+        .add-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-weight: bold;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .add-btn:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            background: white;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            .container { margin-top: 20px; }
+            nav ul { flex-direction: column; }
+            nav a { padding: 10px; }
+            .friends-grid { grid-template-columns: 1fr; }
+            .friend-links { flex-direction: column; }
+            .friend-link { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🤝 朋友友站</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="about.html">關於我</a></li>
+            <li><a href="projects.html">專案</a></li>
+            <li><a href="friends.html">朋友友站</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="intro-card animate">
+            <h2>我的朋友們</h2>
+            <p>這是一個展示我認識的優秀開發者、創意人和志同道合朋友的頁面。如果你是我的朋友，也歡迎在這裡推薦你的網站或作品！</p>
+        </div>
+
+        <h2 class="section-title animate">友站列表</h2>
+
+        <div class="friends-grid animate">
+            <!-- 友站示例 1 -->
+            <div class="friend-card">
+                <div class="friend-header">
+                    <h3 class="friend-name">Alex Zhang</h3>
+                    <p class="friend-title">全棧開發者 | 開源愛好者</p>
+                </div>
+                <div class="friend-content">
+                    <p>專注於 React 和 Node.js 開發，對開源社區有著深厚的貢獻。</p>
+                    <div class="friend-skills">
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">Node.js</span>
+                        <span class="skill-badge">Python</span>
+                    </div>
+                    <div class="friend-links">
+                        <a href="#" class="friend-link">訪問網站</a>
+                        <a href="#" class="friend-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 友站示例 2 -->
+            <div class="friend-card">
+                <div class="friend-header">
+                    <h3 class="friend-name">Lisa Wang</h3>
+                    <p class="friend-title">UI/UX 設計師 | 創意工作者</p>
+                </div>
+                <div class="friend-content">
+                    <p>設計精美的用戶界面，熱愛創意設計和品牌建設。</p>
+                    <div class="friend-skills">
+                        <span class="skill-badge">Figma</span>
+                        <span class="skill-badge">UI Design</span>
+                        <span class="skill-badge">Branding</span>
+                    </div>
+                    <div class="friend-links">
+                        <a href="#" class="friend-link">訪問網站</a>
+                        <a href="#" class="friend-link">作品集</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 友站示例 3 -->
+            <div class="friend-card">
+                <div class="friend-header">
+                    <h3 class="friend-name">Chen Ming</h3>
+                    <p class="friend-title">數據科學家 | AI 愛好者</p>
+                </div>
+                <div class="friend-content">
+                    <p>專注於機器學習和數據分析，致力於將 AI 應用到實際問題。</p>
+                    <div class="friend-skills">
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">TensorFlow</span>
+                        <span class="skill-badge">Data Science</span>
+                    </div>
+                    <div class="friend-links">
+                        <a href="#" class="friend-link">訪問網站</a>
+                        <a href="#" class="friend-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 友站示例 4 -->
+            <div class="friend-card">
+                <div class="friend-header">
+                    <h3 class="friend-name">Emma Davis</h3>
+                    <p class="friend-title">DevOps 工程師 | 系統設計師</p>
+                </div>
+                <div class="friend-content">
+                    <p>擅長雲計算和系統架構，幫助團隊構建高效的基礎設施。</p>
+                    <div class="friend-skills">
+                        <span class="skill-badge">Docker</span>
+                        <span class="skill-badge">Kubernetes</span>
+                        <span class="skill-badge">AWS</span>
+                    </div>
+                    <div class="friend-links">
+                        <a href="#" class="friend-link">訪問網站</a>
+                        <a href="#" class="friend-link">技術博客</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 友站示例 5 -->
+            <div class="friend-card">
+                <div class="friend-header">
+                    <h3 class="friend-name">James Johnson</h3>
+                    <p class="friend-title">移動開發者 | Flutter 專家</p>
+                </div>
+                <div class="friend-content">
+                    <p>開發高效的跨平台移動應用，對用戶體驗有著執著的追求。</p>
+                    <div class="friend-skills">
+                        <span class="skill-badge">Flutter</span>
+                        <span class="skill-badge">Dart</span>
+                        <span class="skill-badge">Mobile Dev</span>
+                    </div>
+                    <div class="friend-links">
+                        <a href="#" class="friend-link">訪問網站</a>
+                        <a href="#" class="friend-link">App Showcase</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 友站示例 6 -->
+            <div class="friend-card">
+                <div class="friend-header">
+                    <h3 class="friend-name">Sarah Chen</h3>
+                    <p class="friend-title">技術寫手 | 教育家</p>
+                </div>
+                <div class="friend-content">
+                    <p>通過文字和教程幫助人們學習技術，熱愛分享知識。</p>
+                    <div class="friend-skills">
+                        <span class="skill-badge">技術寫作</span>
+                        <span class="skill-badge">教學</span>
+                        <span class="skill-badge">GitHub</span>
+                    </div>
+                    <div class="friend-links">
+                        <a href="#" class="friend-link">訪問博客</a>
+                        <a href="#" class="friend-link">課程</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-friend animate">
+            <h3>🌟 想要加入我的友站列表？</h3>
+            <p>如果你有自己的網站、博客或作品集，歡迎與我分享！</p>
+            <p>你可以通過 Email 或 GitHub 聯繫我，告訴我你的項目信息，我很樂意加入你的友站。</p>
+            <a href="mailto:xiaoyouwu5@gmail.com" class="add-btn">📧 發送郵件</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 C. Y. Built with ❤️ on GitHub Pages.
+    </footer>
+
+</body>
+</html>

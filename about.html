@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我 | C. Y.</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        nav {
+            background: var(--primary-color);
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background: var(--accent-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            border-left: 4px solid var(--accent-color);
+            margin-left: 20px;
+            margin-bottom: 20px;
+            background: #f0f8ff;
+            border-radius: 5px;
+        }
+
+        .timeline-item h3 {
+            margin: 0 0 5px 0;
+            color: var(--accent-color);
+        }
+
+        .timeline-item p {
+            margin: 5px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            background: white;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            .container { margin-top: 20px; }
+            nav ul { flex-direction: column; }
+            nav a { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>關於我</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="about.html">關於我</a></li>
+            <li><a href="projects.html">專案</a></li>
+            <li><a href="friends.html">朋友友站</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="content-card animate">
+            <h1>👋 Hi there! 我是 C. Y.</h1>
+            <p>歡迎來到我的個人頁面！我是一位對科技充滿熱情的探索者，喜歡通過代碼創造有趣的東西。</p>
+
+            <h2>📚 我的背景</h2>
+            <p>我對編程和網頁開發有著濃厚的興趣。從最初接觸 HTML/CSS 開始，我不斷學習新的技術棧，包括 JavaScript、Python 等。我相信實踐是最好的老師，因此我不斷通過實際項目來提升自己的技能。</p>
+
+            <h2>🎯 我的興趣</h2>
+            <ul>
+                <li><strong>前端開發：</strong> 創建美觀且易用的網頁界面</li>
+                <li><strong>Python 編程：</strong> 解決實際問題，進行數據分析</li>
+                <li><strong>開源貢獻：</strong> 與社區共同進步</li>
+                <li><strong>自我學習：</strong> 持續探索新技術和最佳實踐</li>
+            </ul>
+
+            <h2>💡 我的技能</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>前端開發</h3>
+                    <p>HTML5, CSS3, JavaScript, 響應式設計</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>後端技術</h3>
+                    <p>Python, 基本的數據爬蟲和處理</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>版本控制</h3>
+                    <p>Git, GitHub, 日常開發工作流</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>其他工具</h3>
+                    <p>VS Code, 命令行, Markdown 文檔</p>
+                </div>
+            </div>
+
+            <h2>🌟 座右銘</h2>
+            <p><em>"Keep learning, keep coding, keep improving!"</em></p>
+            <p>我相信沒有人生來就是天才，但通過持續學習和練習，任何人都可以成為專家。</p>
+
+            <h2>📞 聯繫我</h2>
+            <p>如果你想與我交流、合作或只是打個招呼，歡迎通過以下方式聯繫：</p>
+            <ul>
+                <li>📧 Email: <a href="mailto:xiaoyouwu5@gmail.com">xiaoyouwu5@gmail.com</a></li>
+                <li>🔗 GitHub: <a href="https://github.com/Chenyou0113" target="_blank">Chenyou0113</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 C. Y. Built with ❤️ on GitHub Pages.
+    </footer>
+
+</body>
+</html>
