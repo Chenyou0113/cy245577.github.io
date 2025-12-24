@@ -17,6 +17,7 @@
             font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
             line-height: 1.6;
             margin: 0;
+            margin-left: 220px;
             background-color: var(--bg-color);
             color: var(--text-color);
         }
@@ -34,13 +35,19 @@
         header {
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
             text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            user-select: none;
         }
 
         .container {
             max-width: 900px;
-            margin: -50px auto 50px;
+            margin: 0 auto 50px;
             padding: 20px;
         }
 
@@ -50,6 +57,9 @@
             padding: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
+            margin-top: -70px;
+            position: relative;
+            z-index: 10;
         }
 
         .profile-img {
@@ -58,7 +68,7 @@
             border-radius: 50%;
             border: 5px solid white;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-top: -110px;
+            margin: -70px auto 20px;
             background-color: white;
         }
 
@@ -124,15 +134,21 @@
             background: var(--primary-color);
             padding: 0;
             margin: 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 220px;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
         }
 
         nav ul {
             list-style: none;
             margin: 0;
-            padding: 0;
+            padding: 20px 0;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: column;
         }
 
         nav li {
@@ -146,16 +162,38 @@
             display: block;
             transition: 0.3s;
             font-weight: 500;
+            border-left: 4px solid transparent;
         }
 
         nav a:hover {
             background: var(--accent-color);
+            border-left-color: white;
         }
 
         footer { text-align: center; padding: 40px; color: #888; }
 
-        @media (max-width: 600px) {
-            .container { margin-top: 20px; }
+        @media (max-width: 900px) {
+            body { margin-left: 0; }
+            nav {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 0;
+            }
+            nav a {
+                border-left: none;
+                border-bottom: 4px solid transparent;
+                padding: 10px 15px;
+            }
+            nav a:hover {
+                border-left: none;
+                border-bottom-color: white;
+            }
+            .container { margin-left: 0; }
             .profile-img { margin-top: 0; }
         }
     </style>
